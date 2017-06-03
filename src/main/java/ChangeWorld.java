@@ -3,12 +3,12 @@
  */
 public class ChangeWorld {
 
-    public static boolean cellState(int x, int y,char[][] world) {
+    public static boolean cellState(int x, int y,String[][] world) {
         if (x < 0 || x >=  world.length || y < 0 || y >= world[0].length || world[x][y] == InitWorld.DEATH) return false;
         return true;
     }
 
-    public static int getAliveNeighborsNumber(int x, int y,char[][] world) {
+    public static int getAliveNeighborsNumber(int x, int y,String[][] world) {
         int numbers = 0;
 
         for (int i = x - 1; i <= x + 1; i++) {
@@ -21,8 +21,8 @@ public class ChangeWorld {
         return numbers;
     }
 
-    public static char[][] changeWorld(char[][] world) {
-        char[][] newWorld = new char[ world.length][ world[0].length];
+    public static String[][] changeWorld(String[][] world) {
+        String[][] newWorld = new String[ world.length][ world[0].length];
         for (int i = 0; i <  world.length; i++) {
             for (int j = 0; j <  world[0].length; j++) {
                 if (getAliveNeighborsNumber(i, j,world) == 3) newWorld[i][j] = InitWorld.ALIVE;

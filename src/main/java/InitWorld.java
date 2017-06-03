@@ -5,10 +5,10 @@ public class InitWorld {
     private static final int HEIGHT = 15;
     private static final int  WIDTH = 15;
 
-    private char[][] world = new char[HEIGHT][WIDTH];
+    private String[][] world = new String[HEIGHT][WIDTH];
 
-    public static final char ALIVE = '*';
-    public static final char DEATH = ' ';
+    public static final String ALIVE = "11 ";
+    public static final String DEATH = "0  ";
 
     public InitWorld() {
         for (int i = 0; i < HEIGHT; i++) {
@@ -23,11 +23,11 @@ public class InitWorld {
     }
 
 
-    public char[][] getWorld() {
+    public String[][] getWorld() {
         return world;
     }
 
-    public void setWorld(char[][] world) {
+    public void setWorld(String[][] world) {
         this.world = world;
     }
 }

@@ -3,7 +3,7 @@
  */
 public class GameOfLife {
     private static final int HEIGHT = 15;
-    private static final int WIDTH = 15;
+    private static final int  WIDTH = 15;
 
     private char[][] world = new char[HEIGHT][WIDTH];
 
@@ -12,7 +12,7 @@ public class GameOfLife {
 
     public GameOfLife() {
         for (int i = 0; i < HEIGHT; i++) {
-            for (int j = 0; j < WIDTH; j++) {
+            for (int j = 0; j <  WIDTH; j++) {
                 world[i][j] = DEATH;
             }
         }
@@ -22,11 +22,14 @@ public class GameOfLife {
 
     }
 
+    public GameOfLife(char[][] world) {
+        this.world = world;
+    }
 
     public void print() {
-        for (int i = 0; i < HEIGHT; i++) {
+        for (int i = 0; i < world.length; i++) {
             System.out.print(i);
-            for (int j = 0; j < WIDTH; j++) {
+            for (int j = 0; j < world[0].length; j++) {
 
                 System.out.print(world[i][j]);
 
@@ -37,8 +40,9 @@ public class GameOfLife {
     }
 
 
+
     public boolean cellState(int x, int y) {
-        if (x < 0 || x >= HEIGHT || y < 0 || y >= WIDTH || world[x][y] == DEATH) return false;
+        if (x < 0 || x >=  world.length || y < 0 || y >= world[0].length || world[x][y] == DEATH) return false;
         return true;
     }
 
@@ -56,9 +60,9 @@ public class GameOfLife {
     }
 
     public char[][] changeWorld() {
-        char[][] newWorld = new char[HEIGHT][WIDTH];
-        for (int i = 0; i < HEIGHT; i++) {
-            for (int j = 0; j < WIDTH; j++) {
+        char[][] newWorld = new char[ world.length][ world[0].length];
+        for (int i = 0; i <  world.length; i++) {
+            for (int j = 0; j <  world[0].length; j++) {
                 if (getAliveNeighborsNumber(i, j) == 3) newWorld[i][j] = ALIVE;
                 else if (getAliveNeighborsNumber(i, j) == 2 && world[i][j] == ALIVE)
                     newWorld[i][j] = ALIVE;
@@ -71,8 +75,8 @@ public class GameOfLife {
 
     public void printNextWorld() {
 //        char[][] newWorld = changeWorld();
-        for (int i = 0; i < HEIGHT; i++) {
-            for (int j = 0; j < WIDTH; j++) {
+        for (int i = 0; i <  world.length; i++) {
+            for (int j = 0; j <  world[0].length; j++) {
                 System.out.print(world[i][j]);
 
             }

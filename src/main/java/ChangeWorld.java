@@ -4,7 +4,7 @@
 public class ChangeWorld {
 
     public static boolean cellState(int x, int y,String[][] world) {
-        if (x < 0 || x >=  world.length || y < 0 || y >= world[0].length || world[x][y] == InitWorld.DEATH) return false;
+        if (x < 0 || x >=  world.length || y < 0 || y >= world[0].length || world[x][y].equals(InitWorld.DEATH)) return false;
         return true;
     }
 
@@ -25,8 +25,8 @@ public class ChangeWorld {
         String[][] newWorld = new String[ world.length][ world[0].length];
         for (int i = 0; i <  world.length; i++) {
             for (int j = 0; j <  world[0].length; j++) {
-                if (getAliveNeighborsNumber(i, j,world) == 3) newWorld[i][j] = InitWorld.ALIVE;
-                else if (getAliveNeighborsNumber(i, j,world) == 2 && world[i][j] == InitWorld.ALIVE)
+                if (getAliveNeighborsNumber(i, j,world) == 3) newWorld[i][j] =InitWorld.ALIVE;
+                else if (getAliveNeighborsNumber(i, j,world) == 2 && world[i][j].equals(InitWorld.ALIVE))
                     newWorld[i][j] = InitWorld.ALIVE;
                 else newWorld[i][j] = InitWorld.DEATH;
             }
